@@ -1,0 +1,9 @@
+numpy
+scipy
+wordcloud
+matplotlib
+nltk
+xlsxwriter
+tqdm
+tensorflow
+scikit-learn

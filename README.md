@@ -1,50 +1,45 @@
-# Recipe_Alternation-Inovation_SpoonacularAPI
-International Recipe Alternation and Innovation Based on Dietary Needs and Food Availability with NLP
+#Food Recipe Alternation and Generation
+*Based on Dietary Needs and Food Availability with NLP*
 
-## PROJECT TITLE
-International Recipe Alternation and Innovation Based on Dietary Needs and Food Availability with NLP
-
-## ABSTRACT 
-Analyzing the similarity and substitutability across various cuisines is beneficial to both diners and food operators. In this project, we propose quantitative deep learning approaches to recipes to find out if there are alternative options for some ingredients. We would like to alter some ingredients to take into account different dietary needs and/or food-availability while trying to retain its authentic taste in terms of texture and flavor. This work requires an understanding of how ingredients are paired within each cuisine. We will explore whether there is a universal or cuisine-specific rule on which ingredients go or against each other.  Our work is based on a real-world dataset scraped off some major recipe websites such as BBC Food and Epicurious. We will also obtain information on nutrition values from USDA. We will address two challenges associated with our task: transforming the recipes from text form to numeric data, and the choice of appropriate deep learning algorithm. Our experimental results would be able to serve as an effective tool for recipe design and alteration. 
-
-### Detailed analysis includes:
-Cuisine similarities using clustering techniques
-Most prominent ingredients in each cuisine/cluster
-Which ingredients always and never go to together within and cross cuisines
-
-## DATASET DESCRIPTION
-We will obtain data mainly through scraping off two websites: BBC Food and Epicurious. Both of the sites has cuisine tags. We will organize the information into a dataframe and saved in a CSV file. To obtain information on the nutrition values of each ingredient, we will use USDA API.
-
-### Some necessary information we want to include but not limited to are:
-`Cuisine`: cuisine types
-`ingredients` string of  ingredients with quantity amount
-`instructions`: a string of detailed instructions
-`prep time`: minimum food prep time 
-`total time`: include cooking time
-`cooking process`: extract verbs that provide information that indicates how food is cooked
-`kitchenware` 
-`serving size`
-`total calories`: total calories counts of the recipe based on ingredients
-`nutrition`: nutrition values 
+- Work by: **Yuran Pan, Qiangwen Xu**. 
+- Based on: the course project of Fordham University CISC6210 Natural Language Processing. 
 
 
-## LEARNING TOOLS
-Python
+##Requirements
 
-### NLP METHODS
-Data Acquisition
-Web scraping using BeautifulSoup
-API
-Preprocessing Unstructured Data
-Regular expression
-Stop words removal
-Entity Extraction
-Stemming
-Tokenization
-Analysis and Modeling
-BOW model
-WordCloud to visualize commonly used ingredients of each cuisine 
-Word2vec to learn similarities 
-LDA to study ingredient pairing
-Others 
+Before running our code, you need to make sure the environment has Python>=3.0 and all other required modules, which are listed in ***reqirements.txt***.  
+
+Or you can simply run following command in the project directory:  
+ 
+```
+pip install -r requirements.txt
+```
+
+Then you can implement our models.
+
+##Data
+Our data is almost from [Spoonacular API](https://spoonacular.com/food-api). It provides various information about food, including the ingredients, instructions, and the nutritions and so on. 
+
+We've already collected over 3000 recipes from it for you to train the models on. The raw dataset is saved as ***nlp_finalproj_data_withids.csv***. 
+
+To convert some information into the frame our task need, we did some data cleaning and preprocessing work, then the processed data is saved as ***nlp_finalproj_data_preprocessed.csv***.  
+
+The all data file paths in our code are written as: 
+
+```
+./data/...
+```
+If you want to use your own dataset, please make sure it has the frame this project demands, then change the file paths.
+
+
+##Code Files  
+All .ipynb files contains running log inside so that you can see the output without actual executing them. And all of them can be convert to .py file through python notebook editor like jupyter book, if you need.  
+
+- ***NLP_FinalProj_Data.ipynb***: collecting data from spoonacular API. If you want to use our collected dataset or your own data, you don't need it.  
+- ***NLP_final_PreProcessing.ipynb***: The data cleaning and preprocessing to raw datasets. If you want to use our collected dataset, you don't need to run it. The processed dataset is already there.
+- ***nlp_finalProj_EDA.ipynb***: The EDA code showing some statistical information about the data.
+- ***NLP_final_Word2Vec.ipynb***: Implementing word embedding models (skip-gram with negative samples) to the datasets. 
+- ***nlp-recipe-generator-ngram.ipynb***: Recipe generator based on language model.
+- ***nlp-finalproj-recipe-generator-wordbased.ipynb***: Recipe generator based on LSTM.
+
 
